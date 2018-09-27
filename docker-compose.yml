@@ -1,0 +1,12 @@
+version: '3'
+services:
+  tfserver:
+    build: ./trafficserver
+    ports:
+      - "80:8080"
+    volumes:
+      - "./trafficserver/conf:/etc/trafficserver:rw"
+  php:
+    image: php:apache
+    volumes:
+      - "./php:/var/www/html:rw"
